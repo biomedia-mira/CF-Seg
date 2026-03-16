@@ -40,3 +40,16 @@ Download pre-processed (and resized to 256x256) CheXMask for MIMIC dataset using
 
 Download our expert defined Lung Segmentation for a selected of MIMIC dataset (256x256) using the following link: https://drive.google.com/file/d/1ohJzMnlB_NJ1WGWfx5us3DdNxZUep71g/view?usp=sharing
 
+# Citation
+
+If you find this work useful in your research, please consider citing:
+
+```bibtex
+@inproceedings{mehta2025cf,
+  title={Cf-seg: Counterfactuals meet segmentation},
+  author={Mehta, Raghav and De Sousa Ribeiro, Fabio and Xia, Tian and Roschewitz, Melanie and Santhirasekaram, Ainkaran and Marshall, Dominic C and Glocker, Ben},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={117--127},
+  year={2025},
+  organization={Springer}
+}
