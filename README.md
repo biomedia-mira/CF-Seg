@@ -9,7 +9,7 @@ causal-gen: causal generative model based on HVAE. Modified from https://github.
 
 ### Training
 - Train PGM: causal-gen/src/pgm/run_train_pgm_pe.sh
-- Train HVAE: causal-gen/src/run+train_hvae.sh
+- Train HVAE: causal-gen/src/run_train_hvae.sh
 - Train Soft Counterfactual Fine Tuning: causal-gen/src/pgm/run_train_cf_soft_pe.sh
 
 ### Inference
