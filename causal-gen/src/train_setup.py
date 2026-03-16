@@ -8,7 +8,7 @@ from torch import nn
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torch.utils.tensorboard import SummaryWriter
 
-from datasets import mimic, padchest
+from datasets import mimic
 from hps import Hparams
 from utils import linear_warmup, seed_worker
 
@@ -20,8 +20,6 @@ mimic_finding_name = {
 def setup_dataloaders(args: Hparams, augment=True, drop_last=True, weightedsampler=False) -> Dict[str, DataLoader]:
     if args.dataset in ["mimic","mimic_pe"]:
         datasets = mimic(args, augment)
-    if args.dataset in ["padchest","padchest_pe"]:
-        datasets = padchest(args, augment)
     else:
         NotImplementedError
 
@@ -48,7 +46,6 @@ def setup_optimizer(args: Hparams, model: nn.Module) -> Tuple[torch.optim.Optimi
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.wd, betas=args.betas)
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=linear_warmup(args.lr_warmup_steps))
     return optimizer, scheduler
-
 
 def setup_directories(args: Hparams, ckpt_dir: str = "../checkpoints") -> str:
     parents_folder = "_".join([k[0] for k in args.parents_x])

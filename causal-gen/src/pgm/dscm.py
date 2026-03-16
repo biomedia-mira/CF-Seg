@@ -30,22 +30,6 @@ mimic_var_values = {"sex":[0,1],         # male, female
 
 
 
-padchest_var_values = {"sex":[0,1],          # male, female
-                       "view":[0,1],         # AP, PA
-                       "finding":[0,1,2,3],  # NoFinding, PE, CM, PE&CM
-                       "pe_finding":[0,1],   # NoFinding, PE
-                       "age":[0,1,2,3,4],    # 0-100
-                       "race":[0,1,2],}      # White, Asian, Black
-
-padchest_var_shape = {"sex":2,         # male, female
-                      "view":2,        # PA, AP
-                      "finding":4,     # NoFinding, PE, CM, PE&CM
-                      "pe_finding":2,  # NoFinding, PE
-                      "age":1,         # 0-100
-                      "race":3,}       # White, Asian, Black
-
-
-
 class DSCM(nn.Module):
     def __init__(self, args: Hparams, pgm: nn.Module, predictor: nn.Module, vae: nn.Module):
         super().__init__()

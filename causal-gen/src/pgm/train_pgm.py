@@ -21,7 +21,7 @@ from hps import Hparams
 from train_setup import setup_directories, setup_logging, setup_tensorboard, setup_dataloaders
 from utils import EMA, seed_all, seed_worker
 
-from flow_pgm import ChestPGM, ChestPGM_CM, ChestPGM_PE, ChestPGM_LD, ChestPGM_O, ChestPGM_AT, ChestPGM_ED, ChestPGM_NP, ChestPGM_CO
+from flow_pgm import ChestPGM, ChestPGM_PE
 
 mimic_finding_name = {
                    "mimic":"finding",

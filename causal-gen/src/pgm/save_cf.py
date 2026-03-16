@@ -10,8 +10,8 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 import torch
-from dscm import DSCM, vae_preprocess, padchest_var_shape, padchest_var_values
-from flow_pgm import ChestPGM, ChestPGM_CM, ChestPGM_PE, ChestPGM_LD, ChestPGM_O, ChestPGM_AT, ChestPGM_ED, ChestPGM_NP, ChestPGM_CO
+from dscm import DSCM, vae_preprocess, mimic_var_values, mimic_var_shape
+from flow_pgm import ChestPGM, ChestPGM_PE
 from tqdm import tqdm
 from train_pgm import preprocess, setup_dataloaders
 
@@ -166,7 +166,7 @@ if __name__ == "__main__":
    cfs_variable_values = {}
    for v in args.interven_variables:
       if args.dataset in ["mimic","mimic_pe"]:
-         cfs_variable_values[v] = padchest_var_values[v]
+         cfs_variable_values[v] = mimic_var_values[v]
       else:
          raise NotImplementedError("dataset should be either mimic or mimic_pe")
 
@@ -192,11 +192,12 @@ if __name__ == "__main__":
 
          pa = {k: v for k, v in batch.items() if k not in ["x", "y", "dicom_id"]}
 
-         ### we will need to predict race here, as PadChest doesn't have race given
          # print(batch.keys())
          pred = model.predictor.predict(**batch)
-         if args.pred_race:
-            pa["race"] = pred["race"].clone().cuda()
+
+         ### we will need to predict race here, as PadChest doesn't have race given
+         # if args.pred_race:
+         #    pa["race"] = pred["race"].clone().cuda()
 
          _pa = vae_preprocess(args, {k: v.clone() for k, v in pa.items()})
 
