@@ -53,3 +53,7 @@ If you find this work useful in your research, please consider citing:
   year={2025},
   organization={Springer}
 }
+
+# Funding acknowledgements
+
+This work was supported by the Royal Academy of Engineering, the UKRI AI programme for CHAI - EPSRC Causality in Healthcare AI Hub (grant no. EP/Y028856/1), and the European Union's Horizon Europe research and innovation programme under grant agreement 101080302. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or HaDEA. Neither the European Union nor the granting authority can be held responsible for them.
